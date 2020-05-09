@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/master.css') }}"> -->
+    <link href="{{ url_for('static', filename='css/master.css') }}" rel="stylesheet" type="text/css">
+    <!-- ROBOTO CONDENSED MAIN-->
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet"> 
+    <!-- RAMBLA  -->
+    <link href="https://fonts.googleapis.com/css?family=Rambla&display=swap" rel="stylesheet">
+    <!-- Black Hans -->
+    <link href="https://fonts.googleapis.com/css?family=Black+Han+Sans&display=swap" rel="stylesheet">
+    <title>{%block title%}{%endblock%}</title>
+</head>
+<body>
+    <!-- add hamburger menu to mobile  -->
+    {% include "header.html"%}    
+
+    <div class="base-container">    
+        {% block content%} {% endblock %}
+    </div>
+
+    <!-- Add footer -->
+
+</body>
+</html>

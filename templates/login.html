@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{%block title%}Sign in{% endblock %}
+
+{%block content%}
+<!-- Make a template for login/signin -->
+<div class="signin-form">
+    <form method="POST">
+        <fieldset>
+            {% if error %}
+            <div class="signin-popup">
+                <span class="signin-popup-error">{{error}}</span>
+            </div>
+            {%endif%}
+            <legend>Login</legend>
+            <label><p>Username:</p>
+                <input
+                    required
+                    type="text" 
+                    name="username" 
+                    placeholder="Username"
+                    autofocus
+                    title="Username">
+            </label>
+            <label><p>Password:</p>
+                <input 
+                    required
+                    type="password" 
+                    name="password" 
+                    placeholder="Password"
+                    title="Password">
+            </label>
+            <label>
+                <input type="submit" value="Login" name="sign-in">
+            </label>
+        </fieldset>
+    </form>
+</div>
+
+{% endblock %}

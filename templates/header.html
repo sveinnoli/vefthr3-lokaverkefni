@@ -1,0 +1,31 @@
+<header id="headwrapper">
+    <div class="head-container">
+        <nav class="nav-menu">   
+            <a href="/products" class="nav-link">
+                <span class="nav-link-text">
+                    Products
+                </span>
+            </a>   
+        </nav>
+        <nav class="nav-signin-container">
+            {% if "user_session" in session %}
+                <a href="/logout" class="nav-signin-link">
+                    <div class="nav-signin-button">
+                        Logout
+                    </div>
+                </a>      
+            {% else %}
+                <a href="/login" class="nav-signin-link">
+                    <div class="nav-signin-button">
+                        Login
+                    </div>
+                </a>   
+                <a href="/signup" class="nav-signin-link">
+                    <div class="nav-signin-button">
+                        Sign Up
+                    </div>
+                </a>
+            {% endif %}
+    </nav>
+    </div>
+</header>
