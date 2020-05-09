@@ -1,2 +1,3 @@
 # vefthr3-lokaverkefni
-Breytanlegur gaggnagrunur með flask
+#ToDo
+### Add encryption with bultin flask functions
