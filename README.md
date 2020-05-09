@@ -1,3 +1,3 @@
 # vefthr3-lokaverkefni
-#ToDo
+# ToDo
 ### Add encryption with bultin flask functions
