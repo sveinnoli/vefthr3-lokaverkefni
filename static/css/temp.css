@@ -1,0 +1,39 @@
+.notification {
+    position: absolute;
+    top:calc(50% - 128px);
+    left: calc(50% - 117.5px);
+    border-radius: 10px;
+    text-align: center;
+    padding:10px;
+}
+
+.error {
+    background-color:rgba(119, 17, 17, 0.6);
+}
+
+.greetings {
+    background-color:rgba(40, 40, 141, 0.6);
+}
+
+/* make universal input buttons */
+.sign-out {
+    padding: 4.25px 10px;
+    border-color:deepskyblue;
+    border-radius:5px;
+    outline:none;
+    margin: 0 auto 1em;
+    font-weight: 600;
+    font-size: 16px;
+    background:linear-gradient(to top right,rgba( 22, 22, 22, 0.4), 60%, rgba(92, 29, 116, 0.8));
+    font-family: var(--main-font);
+    cursor:pointer;
+}
+.sign-out:hover {
+    background:linear-gradient(to top right,rgba( 22, 22, 22, 0.4), 30%, rgba(82, 42, 97, 1));
+    border-color:rgb(20, 126, 175);
+}
+
+.sign-out:focus {
+    border-color:rgb(24, 170, 219);
+}
+/* temporary code */

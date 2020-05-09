@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{%block title%}Sign up{% endblock %}
+
+{%block content%}
+<div class="signin-form">
+    <form method="POST">
+        <fieldset>
+            {% if error %}
+            <div class="signin-popup">
+                <span class="error">{{error}}</span>
+            </div>
+            {% endif %}
+            {% if success %}
+            <div class="signin-popup">
+                <span class="success">{{success}}</span>
+            </div>
+            {% endif %}
+            <legend>Sign up</legend>
+            <label><p>Username:</p>
+                <input
+                    required
+                    type="text" 
+                    name="username" 
+                    placeholder="5 - 20 Characters"
+                    autofocus
+                    title="5 - 20 Characters"
+                    pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{4,20}$">
+            </label>
+            <label><p>Password:</p>
+                <input 
+                    required
+                    type="password" 
+                    name="password" 
+                    placeholder="8 Characters 1 Number"
+                    title="8 Characters 1 Number"
+                    pattern="^(?=.*\d)(?=.*[a-z])(?=.*[a-z])(?!.*\s).*$">
+            </label>
+            <label>
+                <input type="submit" value="Sign up" name="sign-up">
+            </label>
+        </fieldset>
+    </form>
+</div>
+<script>
+
+</script>
+{% endblock %}
