@@ -1,0 +1,116 @@
+.card-wrapper {
+    padding: 45px 30px 0;
+}
+
+.card-header {
+    display:flex;
+    flex-direction: row;
+}
+
+.button-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    width:100%;
+    padding-right:15px;
+}
+
+.card-container {
+    display:flex;
+    flex-wrap: wrap;
+}
+
+.card-overview {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+    max-width: 50%;
+    margin-top: 20px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.card-overview-details {
+    background: linear-gradient(to top right,rgba(49, 46, 46, 0.7), 25%, rgba(62, 28, 75, 0.8));
+    border-top: 1px solid hsla(0,0%,100%,.1);
+}
+
+.card-title {
+    display:flex;
+    padding: 10px 0px 10px 15px;
+    background-color: rgba(9,85,135,.1);
+    text-transform: uppercase;
+    
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.card-row {
+    display:flex;
+    flex-wrap:wrap;
+}
+
+.card-label {
+    font: var(--main-font);
+    color: #afb3bb;
+    line-height: 26px;
+    overflow-wrap: normal;
+    flex: 0 0 40%;
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.card-value {
+    font: var(--secondary-font);
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 59%;
+    max-width: 59%;
+    flex: 0 0 59%;
+}
+
+@media screen and (max-width: 70em) {
+    .card-wrapper {
+        padding: 30px 30px 0;
+    }
+    .card-overview {
+        -ms-flex: 0 0 100%;
+        flex: 0 0 100%;
+        max-width: 100%;
+        padding: 0 15px 0 0;
+    }
+    .card-label {
+        flex: 0 0 33%;
+    }
+    
+    .card-value {
+        -ms-flex: 0 0 66%;
+        max-width: 66%;
+        flex: 0 0 66%;
+    }
+}
+
+
+@media screen and (max-width: 37.5em) {
+    .card-header {
+        display:flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .button-wrapper {
+        display: flex;
+        justify-content: center;
+        padding-right:15px;
+    }
+    .card-row {
+        display: block;
+    }
+    .card-label {
+        padding: 0;
+    }
+}

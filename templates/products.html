@@ -2,8 +2,181 @@
 {%block title%}Closed{% endblock %}
 
 {%block content%}
-    <div class="notification">
-        <h2>Halló {{name}}</h2>
+    <div class="card-wrapper">
+
+        <div class="card-header">
+            <h1>Card overview</h1>
+            <form method='POST' class="button-wrapper">
+                <button title="Create" class="button-new" type="submit" name="somevariable">
+                    <span class="icon-plus">Create Card</span>
+                </button>
+            </form>
+        </div>
+
+        <div class="card-container">
+
+            <div class="card-overview">
+                <div class="card-overview-details">
+                    <div class="card-title">
+                        <h3>Entry 1</h3>
+                        <form method='POST' class="button-wrapper">
+                            <button class="button-edit icon-wrench" title="Edit" type="submit" name="somevariable"></button>
+                            <button class="button-remove icon-bin2" title="Remove" type="submit" name="somevariable"></button>
+                        </form>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-row">
+                            <div class="card-label">
+                                Name:
+                            </div>
+                            <div class="card-value ">
+                                <span class="text-overflow">
+                                    Rtx 2080 ti
+                                </span>
+                            </div>
+                        </div>
+                        <div class="card-row">
+                            <div class="card-label">
+                                Price:
+                            </div>
+                            <div class="card-value">
+                                <span class="text-overflow">
+                                    180,000KR
+                                </span>
+                            </div>
+                        </div>
+                        <div class="card-row">
+                            <div class="card-label">
+                                Clockspeed:
+                            </div>
+                            <div class="card-value">
+                                <span class="text-overflow">
+                                    2000MHZ OC
+                                </span>
+                            </div>
+                        </div>
+                        <div class="card-row">
+                            <div class="card-label">
+                                Architecture
+                            </div>
+                            <div class="card-value">
+                                <span class="text-overflow">
+                                    Turing
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card-overview">
+                <div class="card-overview-details">
+                    <div class="card-title">
+                        <h3>Entry 1</h3>
+                        <form method='POST' class="button-wrapper">
+                            <button class="button-edit icon-wrench" title="Edit" type="submit" name="somevariable"></button>
+                            <button class="button-remove icon-bin2" title="Remove" type="submit" name="somevariable"></button>
+                        </form>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-row">
+                            <div class="card-label">
+                                Name:
+                            </div>
+                            <div class="card-value ">
+                                <span class="text-overflow">
+                                    Rtx 2080 ti
+                                </span>
+                            </div>
+                        </div>
+                        <div class="card-row">
+                            <div class="card-label">
+                                Price:
+                            </div>
+                            <div class="card-value">
+                                <span class="text-overflow">
+                                    180,000KR
+                                </span>
+                            </div>
+                        </div>
+                        <div class="card-row">
+                            <div class="card-label">
+                                Clockspeed:
+                            </div>
+                            <div class="card-value">
+                                <span class="text-overflow">
+                                    2000MHZ OC
+                                </span>
+                            </div>
+                        </div>
+                        <div class="card-row">
+                            <div class="card-label">
+                                Architecture
+                            </div>
+                            <div class="card-value">
+                                <span class="text-overflow">
+                                    Turing
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-overview">
+                <div class="card-overview-details">
+                    <div class="card-title">
+                        <h3>Entry 1</h3>
+                        <form method='POST' class="button-wrapper">
+                            <button class="button-edit icon-wrench" title="Edit" type="submit" name="somevariable"></button>
+                            <button class="button-remove icon-bin2" title="Remove" type="submit" name="somevariable"></button>
+                        </form>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-row">
+                            <div class="card-label">
+                                Name:
+                            </div>
+                            <div class="card-value ">
+                                <span class="text-overflow">
+                                    Rtx 2080 ti
+                                </span>
+                            </div>
+                        </div>
+                        <div class="card-row">
+                            <div class="card-label">
+                                Price:
+                            </div>
+                            <div class="card-value">
+                                <span class="text-overflow">
+                                    180,000KR
+                                </span>
+                            </div>
+                        </div>
+                        <div class="card-row">
+                            <div class="card-label">
+                                Clockspeed:
+                            </div>
+                            <div class="card-value">
+                                <span class="text-overflow">
+                                    2000MHZ OC
+                                </span>
+                            </div>
+                        </div>
+                        <div class="card-row">
+                            <div class="card-label">
+                                Architecture
+                            </div>
+                            <div class="card-value">
+                                <span class="text-overflow">
+                                    Turing
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </div>
-    <!--#Note to self: use this site as the website to change data, store the database under each individual. -->
 {% endblock %}

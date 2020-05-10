@@ -19,7 +19,7 @@ config = {
 fb = pyrebase.initialize_app(config)
 db = fb.database()
 userbase = db.child("account").get().val() 
-
+#user_gpu = db.child("account")
 if userbase == None: # Avoids crashing if db is empty
     userbase = {}
     
@@ -54,7 +54,7 @@ def index():
     if in_session():
         return redirect(url_for('products'))
     else:
-        return redirect('signup*')
+        return redirect('signup')
 
 #-----------------Sign up-----------------
 #Maybe rename signup to account or something of the sort
@@ -93,9 +93,7 @@ def login():
 def logout():
     if in_session() == True:
         session.pop("user_session", None)
-        return redirect(url_for("login"))
-    else:
-        return redirect(url_for("login"))
+    return redirect(url_for("login"))
 
 #-----------------Product site-----------------
 @app.route('/products', methods=['POST', 'GET'])
@@ -103,10 +101,6 @@ def products():
     name = None
     if in_session() == True:
         name = session["user_session"]["username"]
-        if request.method == 'POST':
-            if "user_session" in session:
-                session.pop("user_session", None)
-                return redirect(url_for("login"))
         return render_template("products.html", name=name)
     return(render_template("403.html"), 403)
 
