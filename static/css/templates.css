@@ -21,24 +21,64 @@ button {
     text-shadow: 0px -1px 1px rgba(0,0,0,0.15);
     border-radius: 5px;
     cursor: pointer;
+    outline: none;
+}
+
+
+
+button span  a {
+    color:black;
+}
+
+button span a:hover {
+    color:black;
 }
 
 .button-new {
-    background:rgb(18, 156, 18);
     padding: 10px 20px 10px 10px;
+    background-color:rgb(18, 156, 18);
 }
+
+
 .button-edit {
     padding: 5px;
-    background: orange;
+    background-color: orange;
 }
+
 .button-remove {
     padding: 5px;
-    background: red;
+    background-color: red;
 }
+
+.button-done {
+    padding: 5px  5px 8px 5px;
+    background-color: #3AC470;
+    width: 100px;
+    
+}
+
+.button-new:hover, .button-edit:hover, .button-remove:hover, .button-done:hover {
+    background-color: rgba(25, 173, 192, 0.548);
+}
+
+.center {
+    align-items: center;
+    justify-items: center;
+    justify-content: center;
+}
+
+.submit-wrapper {
+    display:flex;
+    position: relative;
+    justify-content: center;
+    padding-top: 5px;
+}
+
+
 
 
 @media screen and (max-width: 37.5em) {
-    button {
+    .button-new {
         width: 100%;
     }
 }

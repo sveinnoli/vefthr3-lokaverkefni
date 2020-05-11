@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{%block title%}Closed{% endblock %}
+
+{%block content%}
+    <div class="card-wrapper">
+        <div class="card-header center">
+            <h1>Card Create</h1>
+        </div>
+        <form method='POST'>
+        <div class="submit-wrapper">
+            <button class="button-done icon-checkmark" title="Done" type="submit">Done</button>
+        </div>
+        <div class="card-container center">
+            <div class="card-overview">
+                    <div class="card-overview-details">
+                        <div class="card-title card-row">
+                            <h3>Title</h3>
+                            <input class="input-card-header" type="text" name="title" required>*
+                        </div>
+                        <div class="card-body">
+                            <div class="card-row">
+                                <div class="card-label">
+                                    Name:
+                                </div>
+                                <div class="card-value ">
+                                    <span class="text-overflow">
+                                        <input type="text" name="name" required>*
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="card-row">
+                                <div class="card-label">
+                                    Price:
+                                </div>
+                                <div class="card-value">
+                                    <span class="text-overflow">
+                                        <input type="text" name="price" required>*
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="card-row">
+                                <div class="card-label">
+                                    Clockspeed:
+                                </div>
+                                <div class="card-value">
+                                    <span class="text-overflow">
+                                        <input type="text" name="clockspeed" required>*
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="card-row">
+                                <div class="card-label">
+                                    Architecture
+                                </div>
+                                <div class="card-value">
+                                    <span class="text-overflow">
+                                        <input type="text" name="architecture" required>*
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock %}

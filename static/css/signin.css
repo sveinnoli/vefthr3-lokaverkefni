@@ -75,7 +75,7 @@ input:focus {
     border-color:#9147FF;
 }
 
-input[type=submit] {
+.signin-form input[type=submit] {
     display:block;
     width: 8em;
     margin: 1em auto;

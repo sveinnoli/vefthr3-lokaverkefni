@@ -11,11 +11,11 @@
 
 @font-face {
     font-family: 'icomoon';
-    src:  url('../fonts/icomoon.eot?chocfe');
-    src:  url('../fonts/icomoon.eot?chocfe#iefix') format('embedded-opentype'),
-      url('../fonts/icomoon.ttf?chocfe') format('truetype'),
-      url('../fonts/icomoon.woff?chocfe') format('woff'),
-      url('../fonts/icomoon.svg?chocfe#icomoon') format('svg');
+    src:  url('../fonts/icomoon.eot?h7rv0b');
+    src:  url('../fonts/icomoon.eot?h7rv0b#iefix') format('embedded-opentype'),
+      url('../fonts/icomoon.ttf?h7rv0b') format('truetype'),
+      url('../fonts/icomoon.woff?h7rv0b') format('woff'),
+      url('../fonts/icomoon.svg?h7rv0b#icomoon') format('svg');
     font-weight: normal;
     font-style: normal;
     font-display: block;
@@ -34,7 +34,7 @@
     /* Better Font Rendering =========== */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-  }
+  }  
   
   .icon-wrench:before {
     content: "\e991";
@@ -47,6 +47,12 @@
     position: relative;
     top: 2px;
     right: 4px;
+  }
+  .icon-checkmark:before {
+    content: "\ea10";
+    position: relative;
+    top: 2px;
+    right:4px;
   }
 
 body {

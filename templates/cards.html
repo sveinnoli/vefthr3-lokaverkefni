@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{%block title%}Closed{% endblock %}
+
+{%block content%}
+    <div class="card-wrapper">
+
+        <div class="card-header">
+            <h1>Card Overview</h1>
+            <form method='POST' class="button-wrapper" action="/cards/create">
+                <button title="Create" class="button-new">
+                    <span class="icon-plus">Create Card</span>
+                </button>
+            </form>
+        </div>
+
+        <div class="card-container">
+        {% if cards != None and cards != undefined %}
+            {% for key, value in cards.items() %}
+                <div class="card-overview">
+                    <div class="card-overview-details">
+                        <div class="card-title">
+                            <h3>{{value["title"]}}</h3>
+                            <div class="button-wrapper">
+                                <form method='POST' action="/cards/{{key}}/edit">
+                                    <button class="button-edit icon-wrench" title="Edit" type="submit"></button>
+                                    <input type="hidden" name="edit" value="{{key}}">
+                                </form>
+                                <form method='POST'>
+                                    <button class="button-remove icon-bin2" title="Remove" type="submit"></button>
+                                    <input type="hidden" name="remove" value="{{key}}">
+                                </form>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-row">
+                                <div class="card-label">
+                                    Name:
+                                </div>
+                                <div class="card-value ">
+                                    <span class="text-overflow">
+                                        {{value["name"]}}
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="card-row">
+                                <div class="card-label">
+                                    Price:
+                                </div>
+                                <div class="card-value">
+                                    <span class="text-overflow">
+                                        {{value["price"]}}
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="card-row">
+                                <div class="card-label">
+                                    Clockspeed:
+                                </div>
+                                <div class="card-value">
+                                    <span class="text-overflow">
+                                        {{value["clockspeed"]}}
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="card-row">
+                                <div class="card-label">
+                                    Architecture
+                                </div>
+                                <div class="card-value">
+                                    <span class="text-overflow">
+                                        {{value["architecture"]}}
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% endif %}
+        </div>
+    </div>
+{% endblock %}

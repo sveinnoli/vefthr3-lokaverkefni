@@ -31,3 +31,39 @@
 #if __name__ == "__main__":
 #	app.run(debug=True)
 #
+
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    error = None
+    if in_session() == True:
+        return redirect(url_for("cards"))
+    else:
+        if request.method == 'POST' and "username" in request.form:
+            username = request.form['username']
+            password = request.form['password']
+            if login_check(username, password) != False:
+                session["user_session"] = login_check(username,password)
+                return redirect(url_for("cards"))
+            else:
+                error = "Invalid credentials"
+        return render_template("login.html", error=error)
+
+@app.route('/cards', methods=['POST', 'GET'])
+def cards():
+    name = None
+    if in_session() == True:
+        return render_template("cards.html")
+    return(render_template("403.html"), 403)
+
+@app.route('/cards/create', methods=['POST', 'GET'])
+def create():
+    if in_session() == True:
+        if request.method == 'POST':
+            title = request.form['title']
+            name = request.form['name']
+            price = request.form['price']
+            clockspeed = request.form['clockspeed']
+            architecture = request.form['architecture']
+        return render_template("create.html")
+    return(render_template("403.html"), 403)

@@ -19,7 +19,6 @@ config = {
 fb = pyrebase.initialize_app(config)
 db = fb.database()
 userbase = db.child("account").get().val() 
-#user_gpu = db.child("account")
 if userbase == None: # Avoids crashing if db is empty
     userbase = {}
     
@@ -49,15 +48,31 @@ def in_session():
                 return True
     return False
 
+def add_cards(title, name, price, clockspeed, architecture):
+    db.child("account").child(session["user_session"]["user_id"]).child("cards").push({"title":title, "name":name, "price":price, "clockspeed":clockspeed, "architecture":architecture})
+
+def get_cards():
+    return db.child("account").child(session["user_session"]["user_id"]).child("cards").get().val()
+
+def find_card(card_id):
+    return db.child("account").child(session["user_session"]["user_id"]).child("cards").child(card_id).get().val()
+
+def update_card(title, name, price, clockspeed, architecture, card_id):#add variables that were changed
+    db.child("account").child(session["user_session"]["user_id"]).child("cards").child(card_id).update({"title":title, "name":name, "price":price, "clockspeed":clockspeed, "architecture":architecture})
+
+
+def remove_card(card_id):
+    db.child("account").child(session["user_session"]["user_id"]).child("cards").child(card_id).remove()
+
+
 @app.route('/')
 def index():
     if in_session():
-        return redirect(url_for('products'))
+        return redirect(url_for('cards'))
     else:
         return redirect('signup')
 
 #-----------------Sign up-----------------
-#Maybe rename signup to account or something of the sort
 @app.route('/signup', methods=['GET','POST'])
 def signup():
     error = None
@@ -76,14 +91,14 @@ def signup():
 def login():
     error = None
     if in_session() == True:
-        return redirect(url_for("products"))
+        return redirect(url_for("cards"))
     else:
         if request.method == 'POST' and "username" in request.form:
             username = request.form['username']
             password = request.form['password']
             if login_check(username, password) != False:
                 session["user_session"] = login_check(username,password)
-                return redirect(url_for("products"))
+                return redirect(url_for("cards"))
             else:
                 error = "Invalid credentials"
         return render_template("login.html", error=error)
@@ -96,12 +111,46 @@ def logout():
     return redirect(url_for("login"))
 
 #-----------------Product site-----------------
-@app.route('/products', methods=['POST', 'GET'])
-def products():
-    name = None
+@app.route('/cards', methods=['POST', 'GET'])
+def cards():
     if in_session() == True:
-        name = session["user_session"]["username"]
-        return render_template("products.html", name=name)
+        if request.method == 'POST':
+            if "remove" in request.form:
+                card_id = request.form["remove"]
+                remove_card(card_id)
+                return redirect(url_for("cards"))
+            elif "edit" in request.form:
+                card_id = request.form["edit"]
+                return redirect(url_for("edit"))
+        return render_template("cards.html", cards=get_cards())
+    return(render_template("403.html"), 403)
+
+@app.route('/cards/create', methods=['POST', 'GET'])
+def create():
+    if in_session() == True:
+        if request.method == 'POST' and len(request.form) > 1: #Bug with buttons that returns an empty ODICT and then returns all items 
+            title = request.form['title']
+            name = request.form['name']
+            price = request.form['price']
+            clockspeed = request.form['clockspeed']
+            architecture = request.form['architecture']
+            add_cards(title, name, price, clockspeed, architecture)
+            return redirect(url_for('cards'))
+        return render_template("create.html")
+    return(render_template("403.html"), 403)
+
+@app.route('/cards/<card_id>/edit', methods=['POST', 'GET'])
+def edit(card_id):
+    if in_session() == True:
+        if request.method == 'POST' and len(request.form) > 1:
+            title = request.form['title']
+            name = request.form['name']
+            price = request.form['price']
+            clockspeed = request.form['clockspeed']
+            architecture = request.form['architecture']
+            update_card(title, name, price, clockspeed, architecture, card_id)
+            return redirect(url_for("cards"))
+        return render_template('edit.html', card_id=card_id, card=find_card(card_id))
     return(render_template("403.html"), 403)
 
 @app.errorhandler(403)
@@ -110,7 +159,7 @@ def access_denied(e):
 
 @app.errorhandler(404)
 def page_not_found(e):
-    return redirect(url_for('products'))
+    return redirect(url_for('cards'))
 if __name__ == "__main__":
 	app.run(debug=True)
 
